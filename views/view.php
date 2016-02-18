@@ -6,7 +6,7 @@
 </head>
 <body>
     <div>
-        <h1>Trouve le mot en de X coups ! <?php echo MAX_TRIALS; ?></h1>
+        <h1>Trouve le mot en moins de <?php echo MAX_TRIALS; ?>  coups ! </h1>
     </div>
     <div>
         <p>Le mot à deviner compte <?php echo $lettersCount; ?> lettres&nbsp;: <?php echo $replacementString ?></p>
@@ -16,7 +16,16 @@
     </div>
     <div>
         <p>Voici les lettres que tu as déjà essayées : <?php echo $triedLetters ?></p>
+    <?php if($wordFound): ?>
+        <div>
+            <p>Bravo ! Tu as trouvé le mot auquel je pense, c'est bien.</p>
+        </div>
+    <?php elseif($remainingTrials == 0): ?>
+        <div>
+            <p>Oooooops ! Tu as perdu, m'enfin ! Le mot à trouver était <?php echo $word?></p>
+        </div>
     </div>
+    <?php else: ?>
     <form action="index.php" method="post">
         <fieldset>
             <legend>Il te reste <?php echo  $remainingTrials; ?> essais pour sauver ta peau</legend>
@@ -40,5 +49,6 @@
             </div>
         </fieldset>
     </form>
+    <?php endif; ?>
 </body>
 </html>

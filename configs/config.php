@@ -10,6 +10,8 @@ $letterCount = 0;
 
 $trials = 0;
 
+$wordFound = 0;
+
 $remainingTrials = MAX_TRIALS;
 
 $triedLetters = '';

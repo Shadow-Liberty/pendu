@@ -32,8 +32,12 @@
             $replacementString = substr_replace($replacementString, $triedLetter, $i, 1);
         }
     }
-    if(!$letterFound){
-        $trials += 1;
-    }
+    if($word === $replacementString){
+        $wordFound = 1;
+    }else {
+        if(!$letterFound){
+            $trials += 1;
+        }
 
-$remainingTrials = MAX_TRIALS - $trials;
+        $remainingTrials = MAX_TRIALS - $trials;
+    }

@@ -7,8 +7,6 @@
 
     $word = getWord($wordsArray, $wordIndex);
 
-    $word = $wordsArray[$wordIndex];
-
     $lettersCount = strlen($word);
 
     $replacementString = getReplacementString($lettersCount);
