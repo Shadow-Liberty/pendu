@@ -40,9 +40,17 @@ function unserializedLetters($serializedLetter){
 }
 
 function getWordsArray(){
-    return file(SOURCE_NAME);
+    return @file(SOURCE_NAME)?:false;
 }
 
 function getWordIndex($wordsArray){
     return rand(0, count($wordsArray));
+}
+
+function getWord($wordsArray, $wordIndex){
+    return strtolower(trim($wordsArray[$wordIndex]));
+}
+
+function getReplacementString($lettersCount){
+    return str_pad('', $lettersCount, REPLACEMENT_CHAR);
 }

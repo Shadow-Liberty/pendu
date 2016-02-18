@@ -7,6 +7,14 @@
 
     $wordIndex = $_POST['wordIndex'];
 
+    $lettersCount = $_POST['lettersCount'];
+
+    $replacementString = $_POST['replacementString'];
+
+    $trials = $_POST['trials'];
+
+    $word = getWord($wordsArray, $wordIndex);
+
     $lettersArray = unserializedLetters($serializedLetters);
 
     $lettersArray[$triedLetter] = false;
@@ -15,3 +23,17 @@
 
     $triedLetters .= $triedLetter;
 
+    $letterFound = false;
+
+
+    for($i = 0; $i < $lettersCount; $i++){
+        if(substr($word,$i,1)===$triedLetter){
+            $letterFound = true;
+            $replacementString = substr_replace($replacementString, $triedLetter, $i, 1);
+        }
+    }
+    if(!$letterFound){
+        $trials += 1;
+    }
+
+$remainingTrials = MAX_TRIALS - $trials;
