@@ -38,3 +38,11 @@ function serializedLetters($lettersArray){
 function unserializedLetters($serializedLetter){
     return unserialize(urldecode($serializedLetter));
 }
+
+function getWordsArray(){
+    return file(SOURCE_NAME);
+}
+
+function getWordIndex($wordsArray){
+    return rand(0, count($wordsArray));
+}

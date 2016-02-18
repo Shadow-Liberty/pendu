@@ -5,9 +5,11 @@
 
     $triedLetters = $_POST['triedLetters'];
 
+    $wordIndex = $_POST['wordIndex'];
+
     $lettersArray = unserializedLetters($serializedLetters);
 
-    $lettersArray[$triedLetter] =false;
+    $lettersArray[$triedLetter] = false;
 
     $serializedLetters = serializedLetters($lettersArray);
 

@@ -17,24 +17,25 @@
     <div>
         <p>Voici les lettres que tu as déjà essayées : <?php echo $triedLetters ?></p>
     </div>
-<form action="index.php" method="post">
-    <fieldset>
-        <legend>Il te reste x essais pour sauver ta peau</legend>
-        <div>
-            <label for="triedLetter">Choisis ta lettre</label>
-            <select name="triedLetter" id="triedLetter">
-                <?php foreach($lettersArray as $letter => $status): ?>
-                    <?php if($status) : ?>
-                        <option value="<?php
-                        echo $letter; ?>"><?php echo $letter; ?></option>
-                    <?php endif ?>
-                <?php endforeach ?>
-            </select>
-            <input type="hidden" name="serializedLetters" value="<?php echo $serializedLetters; ?>">
-            <input type="hidden" name="triedLetters" vaxlue="<?php echo $triedLetters; ?>">
-            <input type="submit" value="Essayer cette lettre">
-        </div>
-    </fieldset>
-</form>
+    <form action="index.php" method="post">
+        <fieldset>
+            <legend>Il te reste x essais pour sauver ta peau</legend>
+            <div>
+                <label for="triedLetter">Choisis ta lettre</label>
+                <select name="triedLetter" id="triedLetter">
+                    <?php foreach($lettersArray as $letter => $status): ?>
+                        <?php if($status) : ?>
+                            <option value="<?php
+                            echo $letter; ?>"><?php echo $letter; ?></option>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                </select>
+                <input type="hidden" name="serializedLetters" value="<?php echo $serializedLetters; ?>">
+                <input type="hidden" name="triedLetters" value="<?php echo $triedLetters; ?>">
+                <input type="hidden" name="wordIndex" value="<?php echo $wordIndex; ?>">
+                <input type="submit" value="Essayer cette lettre">
+            </div>
+        </fieldset>
+    </form>
 </body>
 </html>
