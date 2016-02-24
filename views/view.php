@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Le pendu</title>
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-    <div>
-        <h1>Trouve le mot en moins de <?php echo MAX_TRIALS; ?>  coups ! </h1>
+    <input type="checkbox" name="play" class="play">
+    <div class="mainTitle">
+        <h1>Un jeu du pendu<span>Trouve le mot en moins de <?php echo MAX_TRIALS; ?>  coups ! </span></h1>
     </div>
-    <div>
-        <p>Le mot à deviner compte <?php echo $lettersCount; ?> lettres&nbsp;: <?php echo $replacementString ?></p>
+    <div class="letterC">
+        <p>Mot en <?php echo $lettersCount; ?> lettres&nbsp; <span><?php echo $replacementString ?></span></p>
     </div>
-    <div>
+    <div class="hangmanPicture">
         <img src="images/pendu0<?php echo $trials ?>.gif" alt="">
     </div>
     <div>
-        <p>Voici les lettres que tu as déjà essayées : <?php echo $triedLetters ?></p>
+        <p class="previouslyTried">Voici les lettres que tu as déjà essayées : <?php echo $triedLetters ?></p>
     <?php if($wordFound): ?>
-        <div>
+        <div class="won">
             <p>Bravo ! Tu as trouvé le mot auquel je pense, c'est bien.</p>
         </div>
     <?php elseif($remainingTrials == 0): ?>
-        <div>
+        <div class="lost">
             <p>Oooooops ! Tu as perdu, m'enfin ! Le mot à trouver était <?php echo $word?></p>
         </div>
     </div>
     <?php else: ?>
-    <form action="index.php" method="post">
-        <fieldset>
+    <form action="index.php" method="post" class="letterForm">
+        <fieldset class="chooseLetter">
             <legend>Il te reste <?php echo  $remainingTrials; ?> essais pour sauver ta peau</legend>
             <div>
                 <label for="triedLetter">Choisis ta lettre</label>
